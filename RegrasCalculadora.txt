@@ -1,0 +1,16 @@
+1°  não pode ter operador imcompleto ex: (()
+2º  não pode ter operador sem um operando ex: (A ?  ? C)
+3º  não pode começar a formula com operador sem ter um operando ex: (- ? A -> c)
+4º  não pode ter operando sem operador na formula ex: (A B)
+5°  Não pode ter 3 operadores juntos na formula ex: A +-+ B
+6°  não pode começar a formula com operando = )
+7°  não pode terminar forumala com operando = (
+8   não pode ter dois operadores no meio da formular ex: a ^^ b
+9º  não pode terminar a formula com um operador no final ex: a + b  (a + b) -
+10º não pode existir apenas operador na formula: ex: ( + ) + ( - )
+11º não deve aceitar caractere especial: ex: {}
+
+
+
+
+
