@@ -13,8 +13,9 @@ public class Stack {
 
     private int lengthOfStack;
     private String[] stackOfItems;
-    private int posisitionFirstOut = -1;
+    private int positionFirstOut = -1;
     private int countItems;
+
     /**
      * @param length value deducted starting of send of parameter for user of
      * program
@@ -29,21 +30,30 @@ public class Stack {
     }
 
     public boolean push(String parameterStacked) {
-       this.posisitionFirstOut++;
-       this.stackOfItems[posisitionFirstOut] = parameterStacked;
-       
-       return true;
+        this.positionFirstOut++;
+        this.stackOfItems[positionFirstOut] = parameterStacked;
+
+        return true;
     }
 
     public String pop() {
-        String itemPoped = this.stackOfItems[posisitionFirstOut];
-        this.stackOfItems[posisitionFirstOut] = null;
+        String itemPoped = this.stackOfItems[positionFirstOut];
+        this.stackOfItems[positionFirstOut] = null;
 
-        posisitionFirstOut--;
+        positionFirstOut--;
         return itemPoped;
     }
 
     public int getlength() {
         return this.lengthOfStack;
+    }
+
+    public String getValue() {
+        return this.stackOfItems[positionFirstOut];
+    }
+
+    public boolean isEmpty() {
+        return positionFirstOut == - 1;
+
     }
 }

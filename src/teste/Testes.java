@@ -13,18 +13,9 @@ import structures.Stack;
  */
 public class Testes {
     public static void main(String [] args){
-      Stack pilha = new Stack(5);
-      pilha.push("0");
-      pilha.push("1");
-      pilha.push("3");
-      pilha.push("4");
-      pilha.push("5");
-      
-        System.out.println(pilha.pop());
-        System.out.println(pilha.pop());
-        System.out.println(pilha.pop());
-        System.out.println(pilha.pop());
-        System.out.println(pilha.pop());
+     String x = "Os nomes das classes em Java precisam começar com letra e depois desta quaisquer combinações de letras e dígitos.";   
+	int total = x.replaceAll("[^a]", "").length();
+	System.out.println(total);
       
     }    
 }
