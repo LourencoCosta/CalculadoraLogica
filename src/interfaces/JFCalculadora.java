@@ -8,6 +8,7 @@ package interfaces;
 import calculadoralogica.process.ParameterProcess;
 import calculadoralogica.process.ValidationRules;
 import javax.swing.JOptionPane;
+import structures.Queue;
 
 /**
  *
@@ -291,10 +292,11 @@ public class JFCalculadora extends javax.swing.JFrame {
         }
         
         
-        //vr.validateLogicExpression(equacao);
+        vr.validateLogicExpression(equacao);
         ParameterProcess pp = new ParameterProcess(100, 100);
         
-        System.out.println(pp.execute(equacao));
+        Queue q = pp.execute(equacao);
+        CalculaExpressao.execute(q);
         
         return true;
     }

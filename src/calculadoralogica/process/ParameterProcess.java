@@ -74,21 +74,17 @@ public class ParameterProcess {
 
     }
 
-    private String mountExpressionPosFixed(Queue queueOfOut) {
-        String expressionFinal = "";
+    private Queue mountExpressionPosFixed(Queue queueOfOut) {
         
-        while (!queueOfOut.isEmpty()) {
-            expressionFinal += queueOfOut.getValue();
-            queueOfOut.remove();
-        }
+
         while (!stackOfOperators.isEmpty()){      
-            expressionFinal += stackOfOperators.getValue();
+             queueOfOut.insert(stackOfOperators.getValue());
             stackOfOperators.pop();
         }
-        return expressionFinal;
+        return queueOfOut;
     }
 
-    public String execute(String logicExpression) {
+    public Queue execute(String logicExpression) {
         StringTokenizer expressionCracked = new StringTokenizer(logicExpression, "~^V-<()", true);
         while (expressionCracked.hasMoreTokens()) {
             this.processValues(expressionCracked.nextToken().toString());
