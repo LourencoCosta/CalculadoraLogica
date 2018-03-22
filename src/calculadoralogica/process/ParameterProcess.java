@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-import structures.MatrizDePrecedencia;
+import structures.PrecedencyOfMatrix;
 import structures.Queue;
 import structures.Stack;
 
@@ -47,12 +47,12 @@ public class ParameterProcess {
 
             if (listaOperadores.contains(value)) {
                 if (!stackOfOperators.isEmpty()) {
-                    boolean precedencia = MatrizDePrecedencia.verficaMatrizDeprec(parametersValues.get(stackOfOperators.getValue()), parametersValues.get(value));
+                    boolean precedencia = PrecedencyOfMatrix.verifyPrecedencyOrMatrix(parametersValues.get(stackOfOperators.getValue()), parametersValues.get(value));
 
                     while (precedencia) {
                         queueOfOut.insert(stackOfOperators.getValue());
                         stackOfOperators.pop();
-                        precedencia = MatrizDePrecedencia.verficaMatrizDeprec(parametersValues.get(stackOfOperators.getValue()), parametersValues.get(value));
+                        precedencia = PrecedencyOfMatrix.verifyPrecedencyOrMatrix(parametersValues.get(stackOfOperators.getValue()), parametersValues.get(value));
                     }
                     if (!precedencia) {
                         stackOfOperators.push(value);

@@ -5,8 +5,12 @@
  */
 package interfaces;
 
+import Exceptions.ValidateExpressionException;
 import calculadoralogica.process.ParameterProcess;
 import calculadoralogica.process.ValidationRules;
+import calculadoralogica.process.CalculaExpressao;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import structures.Queue;
 
@@ -261,8 +265,13 @@ public class JFCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEquivalenciaActionPerformed
 
     private void jBCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCalculaActionPerformed
-        if (calculaExpressao(equacao) == false) {
-            JOptionPane.showMessageDialog(null, "Expressão Inválida");
+        try {
+            //if (calculaExpressao(equacao) == false) {
+            //    JOptionPane.showMessageDialog(null, "Expressão Inválida");
+            //}
+            equacao = calculaExpressao(equacao);
+        } catch (ValidateExpressionException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         jTVisor.setText(equacao);
     }//GEN-LAST:event_jBCalculaActionPerformed
@@ -274,31 +283,35 @@ public class JFCalculadora extends javax.swing.JFrame {
 
     private void Digitado(String recebido) {
         equacao = jTVisor.getText();
-   
-        
+
         equacao = equacao + recebido;
-  
+
         jTVisor.setText(equacao);
     }
 
-    private boolean calculaExpressao(String equacao) {
-   
+    private String calculaExpressao(String equacao) throws ValidateExpressionException {
+
         ValidationRules vr = new ValidationRules();
-        if(equacao.contains("<->")){
+        if (equacao.contains("<->")) {
             equacao = equacao.replaceAll("<->", "<");
         }
-        if (equacao.contains("->")){
+        if (equacao.contains("->")) {
             equacao = equacao.replaceAll("->", "-");
         }
-        
-        
-        vr.validateLogicExpression(equacao);
-        ParameterProcess pp = new ParameterProcess(100, 100);
-        
-        Queue q = pp.execute(equacao);
-        CalculaExpressao.execute(q);
-        
-        return true;
+        String resultado = new String();
+        try {
+            vr.execute(equacao);
+            ParameterProcess pp = new ParameterProcess(100, 100);
+
+            Queue q = pp.execute(equacao);
+            CalculaExpressao resolveExpressao = new CalculaExpressao(100);
+
+            resultado = resolveExpressao.execute(q);
+        } catch (ValidateExpressionException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        return resultado;
     }
 
     /**

@@ -9,9 +9,9 @@ package structures;
  *
  * @author rlc
  */
-public class MatrizDePrecedencia {
+public class PrecedencyOfMatrix {
    
-    public  static final boolean verficaMatrizDeprec(int stackTop, int valueLast){
+    public  static final boolean verifyPrecedencyOrMatrix(int stackTop, int valueLast){
         final boolean[][] precedencyOfMatrix = { {false, false, false, false, false, false, true}, 
                                                   {false, false, true, true, true, true, true}, 
                                                   {false, false, true, true, true, true, true}, 
