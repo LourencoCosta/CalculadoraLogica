@@ -28,7 +28,7 @@ public class ValidationRules {
         validateCompleteExpression(logicExpression);
         validateOperandNotInCorrectPosition(logicExpression);
                 
-        
+        validateExpessionWithoutTwoOrMoreTermsInSequence(logicExpression);
         validateExpressionWithoutTwoOrMoreOperandsInSequence(logicExpression);
         validateContentsInsideOfParentheses(logicExpression);
         
@@ -79,12 +79,12 @@ public class ValidationRules {
     }
 
     //if the expression has two or more terms in sequence
-    public boolean validateExpessionWithoutTwoOrMoreTermsInSequence(String logicExpression) {
+    public boolean validateExpessionWithoutTwoOrMoreTermsInSequence(String logicExpression) throws ValidateExpressionException {
         List<String> valuesNotAcept = Arrays.asList(new String[]{"TT", "FF", "TF", "FT"});
         boolean result = true;
         for (String value : valuesNotAcept) {
             if (logicExpression.contains(value)) {
-                result = false;
+                 throw new ValidateExpressionException ("A Expressão contem operandos ou termos em sequência");
             }
         }
 
