@@ -40,105 +40,113 @@ public class JFCalculadora extends javax.swing.JFrame {
 
         jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jTVisor = new javax.swing.JTextField();
-        jBTrue = new javax.swing.JButton();
-        jBFalse = new javax.swing.JButton();
-        jBAnd = new javax.swing.JButton();
-        jBOr = new javax.swing.JButton();
-        jBNot = new javax.swing.JButton();
-        jBImplicação = new javax.swing.JButton();
-        jBEquivalencia = new javax.swing.JButton();
-        jBAbreParenteses = new javax.swing.JButton();
-        jBFechaParenteses = new javax.swing.JButton();
-        jBCalcula = new javax.swing.JButton();
-        jBLimpa = new javax.swing.JButton();
+        resultDisplay = new javax.swing.JTextField();
+        trueButton = new javax.swing.JButton();
+        falseButton = new javax.swing.JButton();
+        andButton = new javax.swing.JButton();
+        orButton = new javax.swing.JButton();
+        notButton = new javax.swing.JButton();
+        implicityButton = new javax.swing.JButton();
+        equivalencyButton = new javax.swing.JButton();
+        openParentheseButton = new javax.swing.JButton();
+        closeParentheseButton = new javax.swing.JButton();
+        calculateButton = new javax.swing.JButton();
+        clearAllButton = new javax.swing.JButton();
+        backspaceButton = new javax.swing.JButton();
 
         jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jTVisor.setEditable(false);
-        jTVisor.addActionListener(new java.awt.event.ActionListener() {
+        resultDisplay.setEditable(false);
+        resultDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTVisorActionPerformed(evt);
+                resultDisplayActionPerformed(evt);
             }
         });
 
-        jBTrue.setText("T");
-        jBTrue.addActionListener(new java.awt.event.ActionListener() {
+        trueButton.setText("T");
+        trueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTrueActionPerformed(evt);
+                trueButtonActionPerformed(evt);
             }
         });
 
-        jBFalse.setText("F");
-        jBFalse.addActionListener(new java.awt.event.ActionListener() {
+        falseButton.setText("F");
+        falseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBFalseActionPerformed(evt);
+                falseButtonActionPerformed(evt);
             }
         });
 
-        jBAnd.setText("^");
-        jBAnd.addActionListener(new java.awt.event.ActionListener() {
+        andButton.setText("^");
+        andButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAndActionPerformed(evt);
+                andButtonActionPerformed(evt);
             }
         });
 
-        jBOr.setText("V");
-        jBOr.addActionListener(new java.awt.event.ActionListener() {
+        orButton.setText("V");
+        orButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBOrActionPerformed(evt);
+                orButtonActionPerformed(evt);
             }
         });
 
-        jBNot.setText("~");
-        jBNot.addActionListener(new java.awt.event.ActionListener() {
+        notButton.setText("~");
+        notButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNotActionPerformed(evt);
+                notButtonActionPerformed(evt);
             }
         });
 
-        jBImplicação.setText("->");
-        jBImplicação.addActionListener(new java.awt.event.ActionListener() {
+        implicityButton.setText("->");
+        implicityButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBImplicaçãoActionPerformed(evt);
+                implicityButtonActionPerformed(evt);
             }
         });
 
-        jBEquivalencia.setText("<->");
-        jBEquivalencia.addActionListener(new java.awt.event.ActionListener() {
+        equivalencyButton.setText("<->");
+        equivalencyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEquivalenciaActionPerformed(evt);
+                equivalencyButtonActionPerformed(evt);
             }
         });
 
-        jBAbreParenteses.setText("(");
-        jBAbreParenteses.addActionListener(new java.awt.event.ActionListener() {
+        openParentheseButton.setText("(");
+        openParentheseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAbreParentesesActionPerformed(evt);
+                openParentheseButtonActionPerformed(evt);
             }
         });
 
-        jBFechaParenteses.setText(")");
-        jBFechaParenteses.addActionListener(new java.awt.event.ActionListener() {
+        closeParentheseButton.setText(")");
+        closeParentheseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBFechaParentesesActionPerformed(evt);
+                closeParentheseButtonActionPerformed(evt);
             }
         });
 
-        jBCalcula.setText("Calcular");
-        jBCalcula.addActionListener(new java.awt.event.ActionListener() {
+        calculateButton.setText("Calcular");
+        calculateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCalculaActionPerformed(evt);
+                calculateButtonActionPerformed(evt);
             }
         });
 
-        jBLimpa.setText("Limpar");
-        jBLimpa.addActionListener(new java.awt.event.ActionListener() {
+        clearAllButton.setText("Limpar");
+        clearAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpaActionPerformed(evt);
+                clearAllButtonActionPerformed(evt);
+            }
+        });
+
+        backspaceButton.setText("<- Backspace ");
+        backspaceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backspaceButtonActionPerformed(evt);
             }
         });
 
@@ -147,60 +155,65 @@ public class JFCalculadora extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTVisor)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBTrue)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBFalse)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBAnd)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBOr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBNot)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resultDisplay)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(trueButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(falseButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(andButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(orButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notButton)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(implicityButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(equivalencyButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(openParentheseButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(closeParentheseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(clearAllButton))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBImplicação)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBEquivalencia)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBAbreParenteses)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBFechaParenteses, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addComponent(calculateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBLimpa)))
+                        .addComponent(backspaceButton)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jBCalcula, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBAbreParenteses, jBAnd, jBEquivalencia, jBFalse, jBFechaParenteses, jBImplicação, jBLimpa, jBNot, jBOr, jBTrue});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {andButton, clearAllButton, closeParentheseButton, equivalencyButton, falseButton, implicityButton, notButton, openParentheseButton, orButton, trueButton});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTVisor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resultDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBTrue)
-                    .addComponent(jBFalse)
-                    .addComponent(jBAnd)
-                    .addComponent(jBOr)
-                    .addComponent(jBNot))
+                    .addComponent(trueButton)
+                    .addComponent(falseButton)
+                    .addComponent(andButton)
+                    .addComponent(orButton)
+                    .addComponent(notButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBImplicação)
-                    .addComponent(jBEquivalencia)
-                    .addComponent(jBAbreParenteses)
-                    .addComponent(jBFechaParenteses)
-                    .addComponent(jBLimpa))
+                    .addComponent(implicityButton)
+                    .addComponent(equivalencyButton)
+                    .addComponent(openParentheseButton)
+                    .addComponent(closeParentheseButton)
+                    .addComponent(clearAllButton))
                 .addGap(18, 18, 18)
-                .addComponent(jBCalcula)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(calculateButton)
+                    .addComponent(backspaceButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -224,47 +237,47 @@ public class JFCalculadora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBTrueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTrueActionPerformed
-        Digitado("T");
-    }//GEN-LAST:event_jBTrueActionPerformed
+    private void trueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trueButtonActionPerformed
+        digitado("T");
+    }//GEN-LAST:event_trueButtonActionPerformed
 
-    private void jBFalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFalseActionPerformed
-        Digitado("F");
-    }//GEN-LAST:event_jBFalseActionPerformed
+    private void falseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_falseButtonActionPerformed
+        digitado("F");
+    }//GEN-LAST:event_falseButtonActionPerformed
 
-    private void jBAndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAndActionPerformed
-        Digitado("^");
-    }//GEN-LAST:event_jBAndActionPerformed
+    private void andButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andButtonActionPerformed
+        digitado("^");
+    }//GEN-LAST:event_andButtonActionPerformed
 
-    private void jBOrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOrActionPerformed
-        Digitado("V");
-    }//GEN-LAST:event_jBOrActionPerformed
+    private void orButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orButtonActionPerformed
+        digitado("V");
+    }//GEN-LAST:event_orButtonActionPerformed
 
-    private void jBNotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNotActionPerformed
-        Digitado("~");
-    }//GEN-LAST:event_jBNotActionPerformed
+    private void notButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notButtonActionPerformed
+        digitado("~");
+    }//GEN-LAST:event_notButtonActionPerformed
 
-    private void jBFechaParentesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFechaParentesesActionPerformed
-        Digitado(")");
-    }//GEN-LAST:event_jBFechaParentesesActionPerformed
+    private void closeParentheseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeParentheseButtonActionPerformed
+        digitado(")");
+    }//GEN-LAST:event_closeParentheseButtonActionPerformed
 
-    private void jTVisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTVisorActionPerformed
+    private void resultDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultDisplayActionPerformed
 
-    }//GEN-LAST:event_jTVisorActionPerformed
+    }//GEN-LAST:event_resultDisplayActionPerformed
 
-    private void jBAbreParentesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAbreParentesesActionPerformed
-        Digitado("(");
-    }//GEN-LAST:event_jBAbreParentesesActionPerformed
+    private void openParentheseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openParentheseButtonActionPerformed
+        digitado("(");
+    }//GEN-LAST:event_openParentheseButtonActionPerformed
 
-    private void jBImplicaçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBImplicaçãoActionPerformed
-        Digitado("->");
-    }//GEN-LAST:event_jBImplicaçãoActionPerformed
+    private void implicityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_implicityButtonActionPerformed
+        digitado("->");
+    }//GEN-LAST:event_implicityButtonActionPerformed
 
-    private void jBEquivalenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEquivalenciaActionPerformed
-        Digitado("<->");
-    }//GEN-LAST:event_jBEquivalenciaActionPerformed
+    private void equivalencyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equivalencyButtonActionPerformed
+        digitado("<->");
+    }//GEN-LAST:event_equivalencyButtonActionPerformed
 
-    private void jBCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCalculaActionPerformed
+    private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         try {
             //if (calculaExpressao(equacao) == false) {
             //    JOptionPane.showMessageDialog(null, "Expressão Inválida");
@@ -273,20 +286,31 @@ public class JFCalculadora extends javax.swing.JFrame {
         } catch (ValidateExpressionException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        jTVisor.setText(equacao);
-    }//GEN-LAST:event_jBCalculaActionPerformed
+        resultDisplay.setText(equacao);
+    }//GEN-LAST:event_calculateButtonActionPerformed
 
-    private void jBLimpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpaActionPerformed
+    private void clearAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllButtonActionPerformed
         equacao = "";
-        jTVisor.setText(equacao);
-    }//GEN-LAST:event_jBLimpaActionPerformed
+        resultDisplay.setText(equacao);
+    }//GEN-LAST:event_clearAllButtonActionPerformed
 
-    private void Digitado(String recebido) {
-        equacao = jTVisor.getText();
+    private void backspaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backspaceButtonActionPerformed
+        if (!equacao.isEmpty()) {
+            equacao = equacao.substring(0, equacao.length() - 1);
+            apagar(equacao);
+        }
+    }//GEN-LAST:event_backspaceButtonActionPerformed
+
+    private void apagar(String recebido) {
+        resultDisplay.setText(recebido);
+    }
+
+    private void digitado(String recebido) {
+        equacao = resultDisplay.getText();
 
         equacao = equacao + recebido;
 
-        jTVisor.setText(equacao);
+        resultDisplay.setText(equacao);
     }
 
     private String calculaExpressao(String equacao) throws ValidateExpressionException {
@@ -350,19 +374,20 @@ public class JFCalculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBAbreParenteses;
-    private javax.swing.JButton jBAnd;
-    private javax.swing.JButton jBCalcula;
-    private javax.swing.JButton jBEquivalencia;
-    private javax.swing.JButton jBFalse;
-    private javax.swing.JButton jBFechaParenteses;
-    private javax.swing.JButton jBImplicação;
-    private javax.swing.JButton jBLimpa;
-    private javax.swing.JButton jBNot;
-    private javax.swing.JButton jBOr;
-    private javax.swing.JButton jBTrue;
+    private javax.swing.JButton andButton;
+    private javax.swing.JButton backspaceButton;
+    private javax.swing.JButton calculateButton;
+    private javax.swing.JButton clearAllButton;
+    private javax.swing.JButton closeParentheseButton;
+    private javax.swing.JButton equivalencyButton;
+    private javax.swing.JButton falseButton;
+    private javax.swing.JButton implicityButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTVisor;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton notButton;
+    private javax.swing.JButton openParentheseButton;
+    private javax.swing.JButton orButton;
+    private javax.swing.JTextField resultDisplay;
+    private javax.swing.JButton trueButton;
     // End of variables declaration//GEN-END:variables
 }

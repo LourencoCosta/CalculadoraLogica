@@ -27,13 +27,11 @@ public class ValidationRules {
         validateExpressionStarDifferentOfOperand(logicExpression);
         validateCompleteExpression(logicExpression);
         validateOperandNotInCorrectPosition(logicExpression);
-                
+
         validateExpessionWithoutTwoOrMoreTermsInSequence(logicExpression);
         validateExpressionWithoutTwoOrMoreOperandsInSequence(logicExpression);
         validateContentsInsideOfParentheses(logicExpression);
-        
-         
-        
+
         return true;
     }
 
@@ -50,19 +48,19 @@ public class ValidationRules {
     public boolean validateNumberNotOddOfParentheses(String logicExpression) throws ValidateExpressionException {
         int openParenthese = logicExpression.length() - logicExpression.replace("(", "").length();
         int closeParenthese = logicExpression.length() - logicExpression.replace(")", "").length();
-        
-        if (!(openParenthese - closeParenthese == 0)){
-            throw new ValidateExpressionException ("O Numero de parenteses não está correto");
+
+        if (!(openParenthese - closeParenthese == 0)) {
+            throw new ValidateExpressionException("O Numero de parenteses não está correto");
         }
         return true;
     }
 
     //if the expression don't contains terms
     public boolean validateExpressionWithTerms(String logicExpression) throws ValidateExpressionException {
-        if (!logicExpression.contains("T") && !logicExpression.contains("F")){
-             throw new ValidateExpressionException ("A Expressão não contém termos");
+        if (!logicExpression.contains("T") && !logicExpression.contains("F")) {
+            throw new ValidateExpressionException("A Expressão não contém termos");
         }
-        
+
         return true;
     }
 
@@ -70,11 +68,16 @@ public class ValidationRules {
     public boolean validateExpressionStarDifferentOfOperand(String logicExpression) throws ValidateExpressionException {
         List valuesAcept = Arrays.asList(new String[]{"~", "(", "T", "F"});
         String firstCharachter = Character.toString(logicExpression.charAt(0));
-        
-        if (!valuesAcept.contains(firstCharachter)){
-             throw new ValidateExpressionException ("Operação iniciada de forma incorreta");
+
+        if (firstCharachter.equals("(")) {
+            for (int count = 0; firstCharachter.equals("(") && count < logicExpression.length() - 1; count++) {
+                firstCharachter = Character.toString(logicExpression.charAt(count+1));
+            }
         }
-        
+        if (!valuesAcept.contains(firstCharachter)) {
+            throw new ValidateExpressionException("Operação iniciada de forma incorreta");
+        }
+
         return true;
     }
 
@@ -84,7 +87,7 @@ public class ValidationRules {
         boolean result = true;
         for (String value : valuesNotAcept) {
             if (logicExpression.contains(value)) {
-                 throw new ValidateExpressionException ("A Expressão contem operandos ou termos em sequência");
+                throw new ValidateExpressionException("A Expressão contem operandos ou termos em sequência");
             }
         }
 
@@ -93,13 +96,18 @@ public class ValidationRules {
 
     //if the expression has two or more operands in sequence
     public boolean validateExpressionWithoutTwoOrMoreOperandsInSequence(String logicExpression) throws ValidateExpressionException {
-       
+        List<Character> valuesOperands = Arrays.asList(new Character[]{'V', '^', '-', '<'});
+        List<Character> valuesTerms = Arrays.asList(new Character[]{'T', 'F'});
         for (int i = 0; i < logicExpression.length() - 1; i++) {
             if (logicExpression.charAt(i) != '~' && logicExpression.charAt(i) != '(' && logicExpression.charAt(i) != ')') {
-                if (logicExpression.charAt(i) == logicExpression.charAt(i + 1)) {
-                    throw new ValidateExpressionException ("A Expressão contem operandos ou termos em sequência");
+                //if the character of expression don't is the operand
+                if (!valuesTerms.contains(logicExpression.charAt(i))) {
+                    if (valuesOperands.contains(logicExpression.charAt(i)) && valuesOperands.contains(logicExpression.charAt(i + 1))) {
+                        throw new ValidateExpressionException("A Expressão contem operandos ou termos em sequência");
+                    }
                 }
             }
+
         }
         return true;
     }
@@ -107,7 +115,6 @@ public class ValidationRules {
     //if the expression contains parentheses bad closed 
     //if the expression is incomplete
     public boolean validateCompleteExpression(String logicExpression) throws ValidateExpressionException {
-        
 
         List valuesNotAcepts = Arrays.asList(new Character[]{'~', '<', '-', '^', 'V'});
         if (valuesNotAcepts.contains(logicExpression.charAt(logicExpression.length() - 1))) {
@@ -128,7 +135,6 @@ public class ValidationRules {
     public boolean validateContentsInsideOfParentheses(String logicExpression) throws ValidateExpressionException {
         String valuesInsideParents = "";
         List<String> operandsAcepts = Arrays.asList(new String[]{"~", "<", "-", "^", "V"});
-       
 
         for (int i = 0; i < logicExpression.length() - 1; i++) {
             if (logicExpression.charAt(i) == '(') {
@@ -137,14 +143,14 @@ public class ValidationRules {
                 }
 
                 if ((!valuesInsideParents.contains("T") && !valuesInsideParents.contains("F")) || (valuesInsideParents.isEmpty())) {
-                    throw new ValidateExpressionException ("A Expressão está mal formada");
-                    
+                    throw new ValidateExpressionException("A Expressão está mal formada");
+
                 }
-                
+
                 //refazer para avaliar quantidade de termos presentes no parenteses
                 for (String operand : operandsAcepts) {
                     if (valuesInsideParents.contains(operand)) {
-                       
+
                     }
                 }
             }
@@ -155,11 +161,11 @@ public class ValidationRules {
     //if the expression has one 'not' before or after of a operand
     public boolean validateOperandNotInCorrectPosition(String logicExpression) throws ValidateExpressionException {
         List<String> valueAcepts = Arrays.asList(new String[]{"~", "T", "F", "("});
-       
+
         for (int i = 0; i < logicExpression.length() - 2; i++) {
             if (logicExpression.charAt(i) == '~') {
                 if (!valueAcepts.contains(String.valueOf(logicExpression.charAt(i + 1)))) {
-                     throw new ValidateExpressionException ("A Expressão está mal formada");
+                    throw new ValidateExpressionException("A Expressão está mal formada");
                 }
             }
         }
