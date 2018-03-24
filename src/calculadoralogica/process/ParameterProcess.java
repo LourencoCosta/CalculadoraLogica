@@ -52,7 +52,12 @@ public class ParameterProcess {
                     while (precedencia) {
                         queueOfOut.insert(stackOfOperators.getValue());
                         stackOfOperators.pop();
-                        precedencia = PrecedencyOfMatrix.verifyPrecedencyOrMatrix(parametersValues.get(stackOfOperators.getValue()), parametersValues.get(value));
+                        if (!stackOfOperators.isEmpty())
+                            precedencia = PrecedencyOfMatrix.verifyPrecedencyOrMatrix(parametersValues.get(stackOfOperators.getValue()), parametersValues.get(value));
+                        else{
+                            precedencia = false;
+                            break;
+                        }
                     }
                     if (!precedencia) {
                         stackOfOperators.push(value);

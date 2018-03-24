@@ -60,7 +60,7 @@ public class ValidationRules {
         if (!logicExpression.contains("T") && !logicExpression.contains("F")) {
             throw new ValidateExpressionException("A Expressão não contém termos");
         }
-
+        validateExpressionWithoutOperands(logicExpression);
         return true;
     }
 
@@ -71,7 +71,7 @@ public class ValidationRules {
 
         if (firstCharachter.equals("(")) {
             for (int count = 0; firstCharachter.equals("(") && count < logicExpression.length() - 1; count++) {
-                firstCharachter = Character.toString(logicExpression.charAt(count+1));
+                firstCharachter = Character.toString(logicExpression.charAt(count + 1));
             }
         }
         if (!valuesAcept.contains(firstCharachter)) {
@@ -167,6 +167,34 @@ public class ValidationRules {
                 if (!valueAcepts.contains(String.valueOf(logicExpression.charAt(i + 1)))) {
                     throw new ValidateExpressionException("A Expressão está mal formada");
                 }
+            }
+        }
+
+        return true;
+    }
+
+    //if the expression contains more of one term and not contanins any operand
+    public boolean validateExpressionWithoutOperands(String logicExpression) throws ValidateExpressionException {
+        List<String> valueAcepts = Arrays.asList(new String[]{"~", "-", "V", "^", "<"});
+
+        int countTerms = 0;
+        for (int i = 0; i < logicExpression.length() - 1; i++) {
+            if (logicExpression.charAt(i) == 'T' || logicExpression.charAt(i) == 'F') {
+                countTerms += 1;
+            }
+        }
+
+        if (countTerms > 1) {
+
+            boolean result = false;
+            for (String value : valueAcepts) {
+                if (logicExpression.contains(value)) {
+                    result = true;
+                    break;
+                }
+            }
+            if (!result) {
+                throw new ValidateExpressionException("A Expressão não contem operandos");
             }
         }
 
