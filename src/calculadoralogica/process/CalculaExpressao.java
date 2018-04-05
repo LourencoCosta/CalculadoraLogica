@@ -73,25 +73,28 @@ public class CalculaExpressao {
 
     private String result(String v1, String opl, String v2) {
         switch (opl) {
+            //conjunction (AND)
             case "^":
                 if (v1.equals(v2) && v1.equals("T")) {
                     return "T";
                 } else {
                     return "F";
                 }
-
+            //Disjunction (OR)
             case "V":
                 if (v1.equals(v2) && v1.equals("F")) {
                     return "F";
                 } else {
                     return "T";
                 }
+            //implication ()    
             case "-":
                 if (v1.equals("T") && v2.equals("F")) {
                     return "F";
                 } else {
                     return "T";
                 }
+            //Equivalency    
             case "<":
                 if (v1.equals(v2)) {
                     return "T";
